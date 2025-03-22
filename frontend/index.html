@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поставки</title>
+    <style>
+      #reportTable {
+        border: 1px solid black;
+        border-collapse: collapse;
+        width: 800px;
+      }
+      #reportTable th, #reportTable td {
+        border: 1px solid black; 
+        padding: 8px; 
+        text-align: center;
+      }
+    </style>
+</head>
+<body>
+
+  <main>
+
+    <div id="unauthorizedContent">
+        <p>Sign in</p>
+        <label>Username:</label>
+        <input id="usernameForSignIn" type="text" name="username">
+        <label>Password:</label>
+        <input id="passwordForSignIn" type="password" name="password">
+        <button onclick="signIn()">Sign in</button>
+
+        <p>Sign up</p>
+        <label>Username:</label>
+        <input id="usernameForSignUp" type="text" name="username">
+        <label>Password:</label>
+        <input id="passwordForSignUp" type="password" name="password">
+        <button onclick="signUp()">Sign up</button>
+  </div>
+
+  <div id="authorizedContent" style="display: none;">
+    
+    <div>
+      <p><b>Укажите цену продукции (руб/кг) на период</b></p>
+      <label>С:</label>
+      <input id="fromDateForPeriod" type="date">
+      <label>До:</label>
+      <input id="toDateForPeriod" type="date">
+      <br><br>
+    </div>
+
+    <div id='optionsForPeriodDiv'>
+        <button onclick="addProductForPeriod()">Добавить продукт</button>
+        <button onclick="sendPeriodOnServer()">Создать период</button>
+        <br><br>
+    </div>
+    
+    <p><b>Оформление поставки</b></p>
+    <div id='optionsForSupplyDiv'>
+      <button onclick="addProductForSupply()">Добавить продукт</button>
+      <button onclick="sendSupplyOnServer()">Создать поставку</button>
+      <br><br>
+    </div>
+
+    <div>
+      <p><b>Отчет о поступлениях продукции</b></p>
+      <label>С:</label>
+      <input id="fromDateForReport" type="date">
+      <label>До:</label>
+      <input id="toDateForReport" type="date">
+      <button onclick="getReportFromServer()">Создать отчет</button>
+      <br><br>
+
+      <table id="reportTable"></table>
+      <div id="2 fields">
+
+      </div>
+    </div>
+  
+  </div>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
